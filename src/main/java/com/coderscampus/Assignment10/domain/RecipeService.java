@@ -38,14 +38,14 @@ public class RecipeService {
 		return uri;
 	}
 	
-	public ResponseEntity<DayResponse> convertDayData(String dayOrWeek, String numOfCals, String diet, String exclusions) {
+	public ResponseEntity<DayResponse> convertDayData(String numOfCals, String diet, String exclusions) {
 		RestTemplate rt = new RestTemplate();
 		URI uri = buildURI("day", numOfCals, diet, exclusions);
 		return rt.getForEntity(uri, DayResponse.class);
 		
 	}
 	
-	public ResponseEntity<WeekResponse> convertWeekData(String dayOrWeek, String numOfCals, String diet, String exclusions) {
+	public ResponseEntity<WeekResponse> convertWeekData(String numOfCals, String diet, String exclusions) {
 		RestTemplate rt = new RestTemplate();
 		URI uri = buildURI("week", numOfCals, diet, exclusions);
 		return rt.getForEntity(uri, WeekResponse.class);
