@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.coderscampus.Assignment10.DTO.DayResponse;
+import com.coderscampus.Assignment10.DTO.WeekResponse;
+
 
 @Service
 public class RecipeService {
@@ -35,10 +38,17 @@ public class RecipeService {
 		return uri;
 	}
 	
-	public <T>ResponseEntity<T> getData(String dayOrWeek, String numOfCals, String diet, String exclusions, Class<T> dayOrWeekClass) {
+	public ResponseEntity<DayResponse> convertDayData(String dayOrWeek, String numOfCals, String diet, String exclusions) {
 		RestTemplate rt = new RestTemplate();
-		URI uri = buildURI(dayOrWeek, numOfCals, diet, exclusions);
-		return rt.getForEntity(uri, dayOrWeekClass);
+		URI uri = buildURI("day", numOfCals, diet, exclusions);
+		return rt.getForEntity(uri, DayResponse.class);
+		
+	}
+	
+	public ResponseEntity<WeekResponse> convertWeekData(String dayOrWeek, String numOfCals, String diet, String exclusions) {
+		RestTemplate rt = new RestTemplate();
+		URI uri = buildURI("week", numOfCals, diet, exclusions);
+		return rt.getForEntity(uri, WeekResponse.class);
 		
 	}
 	

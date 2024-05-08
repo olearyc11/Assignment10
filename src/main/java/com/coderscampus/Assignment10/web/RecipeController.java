@@ -20,12 +20,12 @@ public class RecipeController {
 	
 	@GetMapping("mealplanner/week")
 	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions) {
-		return recipeService.getData("week", "2200", diet, exclusions, WeekResponse.class);
+		return recipeService.convertWeekData("week", "2200", diet, exclusions);
 	}
 
 	@GetMapping("mealplanner/day")
 	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions) {
-		return recipeService.getData("day", "1600", "vegan", exclusions, DayResponse.class);
+		return recipeService.convertDayData("day", "1600", "vegan", exclusions);
 	}
 	
 }
