@@ -3,8 +3,8 @@ package com.coderscampus.Assignment10.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.coderscampus.Assignment10.DTO.DayResponse;
 
@@ -12,7 +12,7 @@ import com.coderscampus.Assignment10.DTO.WeekResponse;
 import com.coderscampus.Assignment10.domain.RecipeService;
 
 
-@Controller
+@RestController
 public class RecipeController {
 	
 	@Autowired
