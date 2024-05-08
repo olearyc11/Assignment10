@@ -4,7 +4,7 @@ public class Week {
 
 	private DayResponse Monday;
 	private DayResponse Tuesday;
-	private DayResponse Wendesday;
+	private DayResponse Wednesday;
 	private DayResponse Thursday;
 	private DayResponse Friday;
 	private DayResponse Saturday;
@@ -24,10 +24,10 @@ public class Week {
 		Tuesday = tuesday;
 	}
 	public DayResponse getWendesday() {
-		return Wendesday;
+		return Wednesday;
 	}
-	public void setWendesday(DayResponse wendesday) {
-		Wendesday = wendesday;
+	public void setWendesday(DayResponse wednesday) {
+		Wednesday = wednesday;
 	}
 	public DayResponse getThursday() {
 		return Thursday;
