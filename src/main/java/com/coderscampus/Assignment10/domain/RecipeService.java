@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -22,8 +22,7 @@ public class RecipeService {
 	private String urlMealPlan;
 	
 
-	private URI buildURI(@RequestParam String dayOrWeek, @RequestParam(required=false) String numOfCals,@RequestParam(required=false) String diet, 
-			@RequestParam(required=false) String exclusions) {
+	private URI buildURI(String dayOrWeek, String numOfCals, String diet, String exclusions) {
 		
 		URI uri = UriComponentsBuilder.fromHttpUrl(urlBase + urlMealPlan)
 							.queryParam("timeFrame", dayOrWeek)
