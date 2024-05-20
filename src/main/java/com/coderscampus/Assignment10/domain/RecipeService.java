@@ -25,7 +25,7 @@ public class RecipeService {
 	private String urlMealPlan;
 	
 
-	private URI buildURI(String dayOrWeek, String numOfCals, String diet, String exclusions) {
+	private URI buildURI(String dayOrWeek, Integer numOfCals, String diet, String exclusions) {
 		
 		URI uri = UriComponentsBuilder.fromHttpUrl(urlBase + urlMealPlan)
 							.queryParam("timeFrame", dayOrWeek)
@@ -38,14 +38,14 @@ public class RecipeService {
 		return uri;
 	}
 	
-	public ResponseEntity<DayResponse> convertDayData(String numOfCals, String diet, String exclusions) {
+	public ResponseEntity<DayResponse> convertDayData(Integer numOfCals, String diet, String exclusions) {
 		RestTemplate rt = new RestTemplate();
 		URI uri = buildURI("day", numOfCals, diet, exclusions);
 		return rt.getForEntity(uri, DayResponse.class);
 		
 	}
 	
-	public ResponseEntity<WeekResponse> convertWeekData(String numOfCals, String diet, String exclusions) {
+	public ResponseEntity<WeekResponse> convertWeekData(Integer numOfCals, String diet, String exclusions) {
 		RestTemplate rt = new RestTemplate();
 		URI uri = buildURI("week", numOfCals, diet, exclusions);
 		return rt.getForEntity(uri, WeekResponse.class);

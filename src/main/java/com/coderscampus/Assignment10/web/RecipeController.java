@@ -4,6 +4,7 @@ package com.coderscampus.Assignment10.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.coderscampus.Assignment10.DTO.DayResponse;
@@ -18,14 +19,20 @@ public class RecipeController {
 	@Autowired
 	RecipeService recipeService;
 	
-	@GetMapping("mealplanner/week")
-	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions) {
-		return recipeService.convertWeekData("2200", diet, exclusions);
+	@GetMapping("/mealplanner/week")
+	public ResponseEntity<WeekResponse> getWeekMeals(
+			@RequestParam(required = false) Integer numCalories, 
+			@RequestParam(required = false) String diet, 
+			@RequestParam(required = false) String exclusions) {
+		return recipeService.convertWeekData(numCalories, diet, exclusions);
 	}
 
-	@GetMapping("mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(String numCalories, String diet, String exclusions) {
-		return recipeService.convertDayData("1600", "vegan", exclusions);
+	@GetMapping("/mealplanner/day")
+	public ResponseEntity<DayResponse> getDayMeals(
+			@RequestParam(required = false) Integer numCalories, 
+			@RequestParam(required = false) String diet, 
+			@RequestParam(required = false) String exclusions) {
+		return recipeService.convertDayData(2850, diet, exclusions);
 	}
 	
 }

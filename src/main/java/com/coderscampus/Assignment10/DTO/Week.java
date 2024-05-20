@@ -23,10 +23,10 @@ public class Week {
 	public void setTuesday(DayResponse tuesday) {
 		Tuesday = tuesday;
 	}
-	public DayResponse getWendesday() {
+	public DayResponse getWednesday() {
 		return Wednesday;
 	}
-	public void setWendesday(DayResponse wednesday) {
+	public void setWednesday(DayResponse wednesday) {
 		Wednesday = wednesday;
 	}
 	public DayResponse getThursday() {
@@ -54,7 +54,5 @@ public class Week {
 		Sunday = sunday;
 	}
 	
-	
-
-	
+		
 }

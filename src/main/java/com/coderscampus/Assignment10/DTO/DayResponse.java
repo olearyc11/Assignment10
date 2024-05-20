@@ -2,9 +2,13 @@ package com.coderscampus.Assignment10.DTO;
 
 import java.util.List;
 
-public class DayResponse {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public class DayResponse {
+	
+	@JsonProperty
 	private List<Meal> meals;
+	@JsonProperty
 	private Nutrients nutrients;
 	
 	
