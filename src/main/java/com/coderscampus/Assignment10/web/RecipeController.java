@@ -19,20 +19,23 @@ public class RecipeController {
 	@Autowired
 	RecipeService recipeService;
 	
+	@GetMapping("/mealplanner/day")
+	public ResponseEntity<DayResponse> getDayMeals(
+			@RequestParam(value = "targetCalories", required = false) Integer numCalories, 
+			@RequestParam(value = "diet", required = false) String diet, 
+			@RequestParam(value = "exclude", required = false) String exclusions) {
+		return recipeService.convertDayData(numCalories, diet, exclusions);
+	}
+	
 	@GetMapping("/mealplanner/week")
 	public ResponseEntity<WeekResponse> getWeekMeals(
-			@RequestParam(required = false) Integer numCalories, 
-			@RequestParam(required = false) String diet, 
-			@RequestParam(required = false) String exclusions) {
+			@RequestParam(value = "targetCalories", required = false) Integer numCalories, 
+			@RequestParam(value = "diet", required = false) String diet, 
+			@RequestParam(value = "exclude", required = false) String exclusions) {
+		
 		return recipeService.convertWeekData(numCalories, diet, exclusions);
 	}
 
-	@GetMapping("/mealplanner/day")
-	public ResponseEntity<DayResponse> getDayMeals(
-			@RequestParam(required = false) Integer numCalories, 
-			@RequestParam(required = false) String diet, 
-			@RequestParam(required = false) String exclusions) {
-		return recipeService.convertDayData(2850, diet, exclusions);
-	}
+
 	
 }
